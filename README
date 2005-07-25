@@ -1,0 +1,25 @@
+Summary:
+	Attila The Nun is a framework applying all MDA concept with : a core MetaMeta 
+	Model based on the OMG's MOF, a transformation engine, a code generation 
+	engine, GUIs associated with each engine and a set of MetaModel suitable to 
+	use with this framework.
+
+Contacts:
+	Francois Gaudin : alf44@users.berlios.de
+	Mikaël Barbero : 	mikael@users.berlios.de
+	Cédric Brun : tortoose@users.berlios.de
+	
+Files: 
+	clean.sh: little cleanup of repository to launch before commitment.
+		It removes all '*.pyc' and '*~'. Feel free to add some quirks you find
+		useful.
+		
+	svn_propset.sh: This script enables $Revision$ and $Date$ subversion's keywords
+    for each .py file in the repository. It make these keywords expands with their 
+    related values
+
+	pylint.sh: It launch pylint with attila's specifics options. DO NOT CHANGE IT
+	
+	source_template.py: Default source file template to use.
+	
+	src/: Don't you guess ?
