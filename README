@@ -6,17 +6,17 @@ Summary:
 
 Contacts:
 	Francois Gaudin : alf44@users.berlios.de
-	Mikaël Barbero : 	mikael@users.berlios.de
+	Mikaël Barbero : mikael@users.berlios.de
 	Cédric Brun : tortoose@users.berlios.de
 	
 Files: 
 	clean.sh: little cleanup of repository to launch before commitment.
 		It removes all '*.pyc' and '*~'. Feel free to add some quirks you find
 		useful.
-		
+	
 	svn_propset.sh: This script enables $Revision$ and $Date$ subversion's keywords
-    for each .py file in the repository. It make these keywords expands with their 
-    related values
+		for each .py file in the repository. It make these keywords expands with their 
+		related values
 
 	pylint.sh: It launch pylint with attila's specifics options. DO NOT CHANGE IT
 	
