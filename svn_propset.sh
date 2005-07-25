@@ -4,4 +4,4 @@
 ## for each .py file in the repository. 
 ## It make these keywords expands with their related values
 
-find ./ -name "*.py" | xargs svn propset svn:keywords "Date Author"
+find ./ -name "*.py" | xargs svn propset svn:keywords "Date Revision"
