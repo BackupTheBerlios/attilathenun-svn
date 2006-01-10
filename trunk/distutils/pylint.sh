@@ -19,4 +19,4 @@ pylint --color=y \
   --function-rgx=[a-z_][a-zA-Z0-9]*$ \
   --argument-rgx=[a-z][a-zA-Z0-9]*$ \
   --max-public-methods=25 \
-  src.core.MOF
+  attila.core.MOF
