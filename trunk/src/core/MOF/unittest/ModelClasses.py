@@ -1,7 +1,7 @@
 ﻿# -*- coding: utf-8 -*-
 
 ##############################################################################
-# Copyright 2005 Mikaël Barbero                                              #
+# Copyright 2005, 2006 Attila The Nun Project                                #
 # This file is part of Attila The Nun project.                               #
 #                                                                            #
 # Attila The Nun is free software; you can redistribute it and/or modify     #
