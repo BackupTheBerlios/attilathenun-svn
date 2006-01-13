@@ -20,6 +20,7 @@
 ##############################################################################
 
 """
+Define Attila's cores meta-meta models
 """
 
 from ModelClasses import *

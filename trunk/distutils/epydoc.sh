@@ -1,3 +1,3 @@
 #! /bin/bash
 
-find ./src/ -name "*.py" | xargs epydoc --output doc/api --html
+find ./attila/ -name "*.py" | xargs epydoc --output doc/api --html
