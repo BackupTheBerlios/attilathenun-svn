@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<xmi:XMI xmi:version="2.0" xmlns:emof="http://nowhere/emof.xmi" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <emof:Package name="parent" xmi:id="Package:1">
+    <nestedPackage name="child" nestingPackage="Package:1" xmi:id="Package:2" xsi:type="emof:Package">
+      <ownedType name="Bar" xmi:id="Class:2" xsi:type="emof:Class">
+        <ownedAttribute class="Class:2" isUnique="True" name="titi" type="String:1" xmi:id="Property:2" xsi:type="emof:Property"/>
+      </ownedType>
+    </nestedPackage>
+    <ownedType xmi:id="String:1" name="String" xsi:type="emof:PrimitiveType"/>
+    <ownedType name="Foo" xmi:id="Class:1" xsi:type="emof:Class">
+      <ownedAttribute class="Class:1" isUnique="True" name="toto" type="String:1" xmi:id="Property:1" xsi:type="emof:Property"/>
+    </ownedType>
+  </emof:Package>
+</xmi:XMI>

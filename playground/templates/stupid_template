@@ -1,0 +1,17 @@
+[[ escaping="#"]]
+
+#
+LICENCE DE MON FICHIER
+blablablablabla
+#
+#classes declaration
+#[[ out += "class maClass:"]]
+#stuffs inside
+static truc
+bidule
+une partie statique ici suivie [[ d'une partie dynamique ]]
+et une dernière partie statique
+
+
+
+

@@ -1,0 +1,214 @@
+
+package PrimitiveTypes { 
+datatype Boolean
+datatype Integer
+datatype String
+datatype Double
+}
+
+package DOT { 
+ abstract  class Label  
+  {
+
+     reference element: GraphElement  oppositeOf label ;
+  }
+
+ class SimpleLabel  extends Label 
+  {
+
+     attribute content : String ;
+  }
+
+ class ComplexLabel  extends Label 
+  {
+
+     reference compartments[1-*] ordered  container : Compartment  oppositeOf complexLabel ;
+  }
+
+ abstract  class Compartment  
+  {
+
+     reference complexLabel: ComplexLabel  oppositeOf compartments ;
+     reference compartments[0-1] ordered  container : Compartment ;
+     reference anchor[0-1] container : Anchor  oppositeOf source ;
+  }
+
+ class VerticalCompartment  extends Compartment 
+  {
+
+  }
+
+ class HorizontalCompartment  extends Compartment 
+  {
+
+  }
+
+ class SimpleCompartment  extends Compartment 
+  {
+
+     attribute content : String ;
+  }
+
+ class Anchor  
+  {
+
+     attribute name : String ;
+     reference source[0-1] container : Compartment  oppositeOf anchor ;
+  }
+
+ abstract  class GraphElement  
+  {
+
+     attribute name : String ;
+     reference label[0-1] container : Label  oppositeOf element ;
+     attribute style : String ;
+     attribute color : String ;
+  }
+
+ class Graph  extends GraphElement 
+  {
+
+     attribute type : String ;
+     attribute rankDir : String ;
+     attribute labeljust : String ;
+     attribute labelloc : String ;
+     attribute concentrate : Boolean ;
+     reference nodes[*] ordered  container : Nodelike  oppositeOf graph ;
+     attribute boundingBox : String ;
+     attribute compound : Boolean ;
+     reference layers[*] container : Layer  oppositeOf graph ;
+     attribute nodeSeparation : Double ;
+     attribute ordering : String ;
+     attribute size : String ;
+     attribute ratio : String ;
+     attribute center : Boolean ;
+  }
+
+ class Layer  extends GraphElement 
+  {
+
+     reference nodes[*] container : Nodelike  oppositeOf layers ;
+     reference arcs[*] container : Arc  oppositeOf layers ;
+     reference graph: Graph  oppositeOf layers ;
+     attribute layerSeparator : String ;
+  }
+
+ abstract  class Nodelike  extends GraphElement 
+  {
+
+     reference owner[0-1] container : SubGraph  oppositeOf nodes ;
+     reference refers[*] container : Arc  oppositeOf fromNode ;
+     reference referredBy[*] container : Arc  oppositeOf toNode ;
+     reference graph[0-1] container : Graph  oppositeOf nodes ;
+     reference layers[*] container : Layer  oppositeOf nodes ;
+  }
+
+ class SubGraph  extends Nodelike 
+  {
+
+     reference nodes[*] ordered  container : Nodelike  oppositeOf owner ;
+     attribute labelloc : String ;
+  }
+
+ class Node  extends Nodelike 
+  {
+
+     attribute fixedSize : Boolean ;
+     attribute fontname : String ;
+     attribute fontsize : Integer ;
+     attribute height : Integer ;
+     attribute width : Integer ;
+     reference shape[0-1] container : NodeShape ;
+  }
+
+ abstract  class Arc  extends GraphElement 
+  {
+
+     reference fromNode: Nodelike  oppositeOf refers ;
+     reference toNode: Nodelike  oppositeOf referredBy ;
+     reference layers[*] container : Layer  oppositeOf arcs ;
+     attribute constraint : Boolean ;
+     attribute group : String ;
+     attribute minlen : Integer ;
+     attribute sameHead : String ;
+     attribute sameTail : String ;
+     reference lhead[0-1] container : Nodelike ;
+     reference ltail[0-1] container : Nodelike ;
+     attribute decorate : Boolean ;
+  }
+
+ class DirectedArc  extends Arc 
+  {
+
+     reference arrowHead[0-1] container : ArrowShape ;
+     reference headlabel[0-1] container : Label ;
+     reference taillabel[0-1] container : Label ;
+     reference arrowTail[0-1] container : ArrowShape ;
+     attribute tail_lp : Double ;
+     attribute head_lp : Double ;
+  }
+
+ class UndirectedArc  extends Arc 
+  {
+
+  }
+
+ abstract  class Shape  extends GraphElement 
+  {
+
+     attribute width : Integer ;
+     attribute height : Integer ;
+     attribute peripheries : Integer ;
+  }
+
+ abstract  class NodeShape  extends Shape 
+  {
+
+  }
+
+ class SimpleNodeShape  extends NodeShape 
+  {
+
+  }
+
+ class PointNodeShape  extends NodeShape 
+  {
+
+  }
+
+ abstract  class ComplexNodeShape  extends NodeShape 
+  {
+
+  }
+
+ class PolygonNodeShape  extends ComplexNodeShape 
+  {
+
+     attribute sides : Integer ;
+     attribute skew : Integer ;
+     attribute distortion : Integer ;
+     attribute isRegular : Boolean ;
+     attribute orientation : Integer ;
+  }
+
+ class MNodeShape  extends ComplexNodeShape 
+  {
+
+     reference toplabel[0-1] container : Label ;
+     reference bottomlabel[0-1] container : Label ;
+  }
+
+ class RecordNodeShape  extends ComplexNodeShape 
+  {
+
+  }
+
+ class ArrowShape  extends Shape 
+  {
+
+     attribute clipping : String ;
+     attribute isPlain : Boolean ;
+     attribute size : Integer ;
+  }
+
+}
